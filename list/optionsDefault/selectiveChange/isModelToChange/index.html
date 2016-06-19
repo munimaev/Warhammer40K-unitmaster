@@ -1,0 +1,39 @@
+<div class="list_block">
+
+	<div class="card card_header">
+	  <h3 class="card_h4">
+	    Требование
+	  </h3>
+	</div>
+	<div class="card">
+	  <p class="card_p">
+	    <small class="actlink" ng-click="deleteOpt()">Удалить требование</small>
+	  </p>
+	</div>
+
+  <div class="card card_value">
+    <h4 class="card_h4">
+      Тип опции
+    </h4>
+    <p class="card_p">
+    <select class="input100"
+      ng-options="key as value.label.rus for (key , value) in types"
+      ng-model="unit.optionsDefault[optKey].isModelToChange[canKey].type">
+    </select>
+    </p>
+    <p class="card_p small">
+      {{types[unit.optionsDefault[optKey].isModelToChange[canKey].type].desc.rus}}
+    </p>
+  </div>
+
+
+
+
+  <div class="animate-switch-container"
+    ng-switch on="unit.optionsDefault[optKey].isModelToChange[canKey].type">
+      <div class="animate-switch" ng-switch-when="oneOfModelName">
+        <my-list-oneofmodelname info="info"/>
+      </div>
+  </div>
+
+</div>

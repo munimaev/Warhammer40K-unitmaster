@@ -1,0 +1,63 @@
+
+<div class="card card_value">
+  <h4 class="card_h4">
+    Текст в шапке
+  </h4>
+  <p class="card_p">
+    <textarea type="text" class="input100" ng-model="unit.optionsDefault[optKey].headerText"></textarea>
+  </p>
+</div>
+
+<div class="card">
+  <h4 class="card_h4">
+    Варианты замены
+  </h4>
+  <p class="card_p small">
+    "Условие при котором блокируется возможность удаления ранее добавленных моделей."
+  </p>
+  <div ng-repeat="(key,obj) in unit.optionsDefault[optKey].defaultSubOptions">
+    <h4 ng-class="linkClass(1, ['optionsDefault',optKey,'defaultSubOptions',key])" >
+      <span class="actlink" ng-click="selectList($event, 1, 'defaultSubOptions', ['optionsDefault',optKey,'defaultSubOptions',key])">Вариант замены</span> 
+    </h4>
+    <p class="card_p small p20" style="padding-left:20px;">{{miltyChangeVarianView(obj)}}</p>
+  </div>
+  <p class="card_p p20">
+    <small class="actlink" ng-click="optionAddSub()">Добавить условие</small>
+  </p>
+</div>
+
+
+
+
+<div class="card">
+  <h4 class="card_h4">
+    Запрет использования 
+  </h4>
+  <p class="card_p small">
+    Условия при которых доступна возможность применения опции
+  </p>
+  <h4 ng-class="linkClass(1, ['optionsDefault',optKey,'canEnable',key])" ng-repeat="(key,obj) in unit.optionsDefault[optKey].canEnable" >
+    <span class="actlink" 
+      ng-click="selectList($event, 1, 'canEnable', ['optionsDefault',optKey,'canEnable',key])">Запрет</span> 
+  </h4>
+  <p class="card_p p20">
+    <small class="actlink" ng-click="optionAddEnable()">Добавить условие</small>
+  </p>
+
+
+</div>
+<div class="card">
+  <h4 class="card_h4">
+    Требования к модели 
+  </h4>
+  <p class="card_p small">
+    Свойства, кторомы должна обладать модель что бы она могла воспользоваться этой опцией
+  </p>
+  <h4 ng-class="linkClass(1, ['optionsDefault',optKey,'isModelCanChange',key])" ng-repeat="(key,obj) in unit.optionsDefault[optKey].isModelCanChange" >
+    <span class="actlink" 
+      ng-click="selectList($event, 1, 'isModelCanChange', ['optionsDefault',optKey,'isModelCanChange',key])">Требование</span> 
+  </h4>
+  <p class="card_p p20">
+    <small class="actlink" ng-click="optionAddModelCan()">Добавить требование</small>
+  </p>
+</div>

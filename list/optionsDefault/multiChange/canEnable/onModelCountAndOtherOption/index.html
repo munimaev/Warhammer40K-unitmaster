@@ -1,0 +1,23 @@
+<div class="card card_value">
+  <h4 class="card_h4">
+    Необходимоеколичесвто моделей в отряде
+  </h4>
+  <p class="card_p">
+    <input value="" class="input100" ng-model="unit.optionsDefault[optKey].canEnable[canKey].count" type="text" />
+  </p>
+</div>
+
+<div class="card">
+  <h4 class="card_h4">
+    Список опций 
+  </h4>
+  <div ng-repeat="(key,obj) in unit.optionsDefault[optKey].canEnable[canKey].opts">
+  <h4 
+      ng-class="linkClass(2, ['optionsDefault',optKey,'canEnable',canKey,'opts',key])" >
+    <span class="actlink" ng-click="selectList($event, 2, 'onModelCountAndOtherOption-Opts', ['optionsDefault',optKey,'canEnable',canKey,'opts',key])">Опция</span> 
+  </h4>
+  </div>
+  <p class="card_p p20">
+    <small class="actlink" ng-click="optionAdd()">Добавить условие</small>
+  </p>
+</div>

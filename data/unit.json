@@ -1,0 +1,389 @@
+{
+  "type": "Infantry",
+  "unitName": "SM_TacticalSquad",
+  "price": 70,
+  "structureDefault": [
+    {
+      "name": "SM_SpaceMarine_Sergeant",
+      "count": "1"
+    },
+    {
+      "name": "SM_SpaceMarine",
+      "count": 4
+    }
+  ],
+  "defaultSpecialRules": [
+    "AndTheyShallKnowNoFear",
+    {
+      "type": "onModelName",
+      "names": [
+        "SM_SpaceMarine_Sergeant"
+      ],
+      "rules": [
+        "AndTheyShallKnowNoFear",
+        "GrimResolve",
+        "IndependentCharacter",
+        "BlessingOfTheOmnissiah",
+        "BolsterDefences"
+      ]
+    },
+    {
+      "type": "onModelName",
+      "names": [
+        "SM_SpaceMarine"
+      ],
+      "rules": [
+        "Mindlock"
+      ]
+    },
+    "ChapterTactics",
+    "CombatSquads"
+  ],
+  "optionsDefault": [
+    {
+      "type": "addModel",
+      "optionName": "SM_TacticalSquad_addSpaceMarine",
+      "cost": 14,
+      "maxCountAdding": 5,
+      "modelToAdd": "SM_SpaceMarine",
+      "funCanDisable": [
+        {
+          "type": "tactical_rull",
+          "options": [
+            "SM_TacticalSquad_HeavyWeapons",
+            "SM_TacticalSquad_SpecialWeapons"
+          ],
+          "count": 2
+        }
+      ]
+    },
+    {
+      "type": "multiChange",
+      "optionName": "SM_TacticalSquad_SpecialWeapons",
+      "cost": 0,
+      "headerText": "Special Weapon. Заменить свой boltgun на одно из следующего",
+      "defaultSubOptions": [
+        {
+          "optionName": "SM_SpecialWeapons_Flamer1",
+          "cost": 5,
+          "addItems": [
+            "Flamer"
+          ],
+          "removeItems": [
+            "Boltgun"
+          ]
+        },
+        {
+          "optionName": "SM_SpecialWeapons_MeltaGun1",
+          "cost": 10,
+          "addItems": [
+            "MeltaGun"
+          ],
+          "removeItems": [
+            "Boltgun"
+          ]
+        },
+        {
+          "optionName": "SM_SpecialWeapons_GravGun1",
+          "cost": 15,
+          "addItems": [
+            "GravGun"
+          ],
+          "removeItems": [
+            "Boltgun"
+          ]
+        },
+        {
+          "optionName": "SM_SpecialWeapons_PlasmaGun1",
+          "cost": 15,
+          "addItems": [
+            "PlasmaGun"
+          ],
+          "removeItems": [
+            "Boltgun"
+          ]
+        }
+      ],
+      "canEnable": [
+        {
+          "type": "onModelCountAndOtherOption",
+          "opts": [
+            {
+              "opt": "SM_TacticalSquad_SpecialWeapons",
+              "max": 1
+            },
+            {
+              "opt": "SM_TacticalSquad_HeavyWeapons",
+              "max": 1
+            }
+          ],
+          "count": 10
+        }
+      ],
+      "isModelCanChange": [
+        {
+          "type": "oneOfModelName",
+          "names": [
+            "SM_SpaceMarine"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "multiChange",
+      "optionName": "SM_TacticalSquad_HeavyWeapons",
+      "cost": 0,
+      "headerText": "Heavy Weapons. Заменить свой boltgun на одно из следующего",
+      "defaultSubOptions": [
+        {
+          "optionName": "SM_HeavyWeapons_HeavyBolter1",
+          "cost": 10,
+          "addItems": [
+            "HeavyBolter"
+          ],
+          "removeItems": [
+            "Boltgun"
+          ],
+          "actionIconUp": "bolter"
+        },
+        {
+          "optionName": "SM_HeavyWeapons_MultiMelta1",
+          "cost": 10,
+          "addItems": [
+            "MultiMelta"
+          ],
+          "removeItems": [
+            "Boltgun"
+          ]
+        },
+        {
+          "optionName": "SM_HeavyWeapons_MissleLuauncher1",
+          "cost": 15,
+          "addItems": [
+            "MissleLuauncher"
+          ],
+          "removeItems": [
+            "Boltgun"
+          ]
+        },
+        {
+          "optionName": "SM_HeavyWeapons_MissleLuauncherFlakk1",
+          "cost": 25,
+          "addItems": [
+            "MissleLuauncherFlakk"
+          ],
+          "removeItems": [
+            "Boltgun"
+          ]
+        },
+        {
+          "optionName": "SM_HeavyWeapons_PlasmaCannon1",
+          "cost": 15,
+          "addItems": [
+            "PlasmaCannon"
+          ],
+          "removeItems": [
+            "Boltgun"
+          ]
+        },
+        {
+          "optionName": "SM_HeavyWeapons_Lascannon1",
+          "cost": 20,
+          "addItems": [
+            "Lascannon"
+          ],
+          "removeItems": [
+            "Boltgun"
+          ]
+        },
+        {
+          "optionName": "SM_HeavyWeapons_GravCannonWithAmp1",
+          "cost": 35,
+          "addItems": [
+            "GravCannonWithAmp"
+          ],
+          "removeItems": [
+            "Boltgun"
+          ]
+        }
+      ],
+      "canEnable": [
+        {
+          "type": "onModelCountAndOtherOption",
+          "opts": [
+            {
+              "opt": "SM_TacticalSquad_SpecialWeapons",
+              "max": 1
+            },
+            {
+              "opt": "SM_TacticalSquad_HeavyWeapons",
+              "max": 1
+            }
+          ],
+          "count": 10
+        }
+      ],
+      "isModelCanChange": [
+        {
+          "type": "oneOfModelName",
+          "names": [
+            "SM_SpaceMarine"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "upgradeModel",
+      "optionName": "SM_SpaceMarineSergeant_upgardeTo_Veteran",
+      "cost": 10,
+      "upgaredForm": "SM_SpaceMarine_Sergeant",
+      "upgaredTo": "SM_VeteranSergeant"
+    },
+    {
+      "type": "selectiveChange",
+      "defaultSubOptions": [
+        {
+          "optionName": "SM_RangedWeapons_Boltgun1",
+          "optionNameInModel": "Boltgun",
+          "cost": 0,
+          "changeTo": "Boltgun"
+        },
+        {
+          "optionName": "SM_RangedWeapons_StormBolter1",
+          "optionNameInModel": "StormBolter",
+          "cost": 5,
+          "changeTo": "StormBolter"
+        },
+        {
+          "optionName": "SM_RangedWeapons_CombiFlamer1",
+          "optionNameInModel": "CombiFlamer",
+          "cost": 10,
+          "changeTo": "CombiFlamer"
+        },
+        {
+          "optionName": "SM_RangedWeapons_CombiGrav1",
+          "optionNameInModel": "CombiGrav",
+          "cost": 10,
+          "changeTo": "CombiGrav"
+        },
+        {
+          "optionName": "SM_RangedWeapons_CombiMelta1",
+          "optionNameInModel": "CombiMelta",
+          "cost": 10,
+          "changeTo": "CombiMelta"
+        },
+        {
+          "optionName": "SM_RangedWeapons_CombiPlasma1",
+          "optionNameInModel": "CombiPlasma",
+          "cost": 10,
+          "changeTo": "CombiPlasma"
+        },
+        {
+          "optionName": "SM_RangedWeapons_GraviPistol1",
+          "optionNameInModel": "GraviPistol",
+          "cost": 15,
+          "changeTo": "GraviPistol"
+        },
+        {
+          "optionName": "SM_RangedWeapons_PlasmaPistol1",
+          "optionNameInModel": "PlasmaPistol",
+          "cost": 15,
+          "changeTo": "PlasmaPistol"
+        },
+        {
+          "optionName": "SM_MeleeWeapons_Chainsword1",
+          "optionNameInModel": "Chainsword",
+          "cost": 0,
+          "changeTo": "Chainsword"
+        },
+        {
+          "optionName": "SM_MeleeWeapons_LightningClaws1",
+          "optionNameInModel": "LightningClaws",
+          "cost": 15,
+          "changeTo": "LightningClaws"
+        },
+        {
+          "optionName": "SM_MeleeWeapons_PowerWeapon1",
+          "optionNameInModel": "PowerWeapon",
+          "cost": 15,
+          "changeTo": "PowerWeapon"
+        },
+        {
+          "optionName": "SM_MeleeWeapons_PowerFist1",
+          "optionNameInModel": "PowerFist",
+          "cost": 25,
+          "changeTo": "PowerFist"
+        },
+        {
+          "optionName": "SM_MeleeWeapons_ThunderHammer1",
+          "optionNameInModel": "ThunderHammer",
+          "cost": 30,
+          "changeTo": "ThunderHammer"
+        }
+      ],
+      "optionName": "SM_TacticalSquad_MeleeWeapons11",
+      "cost": 0,
+      "headerText": "Space Marine Sergeant или Veteran Sergeant может заменить свой boltgun, bolt pistool и/или оружие ближнего боя на одно из cледующего",
+      "isModelToChange": [
+        {
+          "type": "oneOfModelName",
+          "names": [
+            "SM_SpaceMarine_Sergeant",
+            "SM_VeteranSergeant"
+          ]
+        }
+      ],
+      "isWargearToChange": [
+        [
+          {
+            "type": "oneOfWargearName",
+            "names": [
+              "Boltgun",
+              "BoltPistol"
+            ]
+          },
+          {
+            "type": "createBySelf"
+          }
+        ],
+        [
+          {
+            "type": "oneOfWargearType",
+            "types": [
+              "MeleeWeapon"
+            ]
+          },
+          {
+            "type": "createBySelf"
+          }
+        ]
+      ]
+    },
+    {
+      "type": "dedicatedTransport",
+      "optionName": "SM_DedicatedFastTransport1",
+      "defaultSubOptions": [
+        {
+          "optionName": "SM_DedicatedTransport_DropPod1",
+          "dedicatedUnitName": "SM_DropPod"
+        },
+        {
+          "optionName": "SM_DedicatedTransport_Rhino1",
+          "dedicatedUnitName": "SM_Rhino"
+        },
+        {
+          "optionName": "SM_DedicatedTransport_Razorback1",
+          "dedicatedUnitName": "SM_Razorback"
+        }
+      ]
+    }
+  ],
+  "defaultUnitWargear": [
+    "Boltgun",
+    "BoltPistol",
+    "FragGrenades",
+    "KrakGrenades"
+  ],
+  "visibleName": "Tactical Squad",
+  "pic": "units_DA/TacticakSquade.jpg"
+}

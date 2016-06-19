@@ -1,0 +1,43 @@
+<div class="list_gear">
+  <div class="card card_header">
+    <h3 class="card_h4">
+      {{header()}}
+    </h3>
+  </div>
+  <div class="card">
+    <p class="card_p">
+      <small class="actlink" ng-click="deleteOpt();">Удалить опцию</small>
+    </p>
+  </div>
+  <div class="card card_value">
+    <h4 class="card_h4">
+      Тип опции
+    </h4>
+    <p class="card_p">
+    <select class="input100"
+      ng-options="key as value.label.rus for (key , value) in types"
+      ng-model="unit.optionsDefault[optKey].type"
+      ng-disabled="disabledOpt()">
+    </select>
+    </p>
+  </div>
+
+ <div class="animate-switch-container" ng-switch on="unit.optionsDefault[optKey].type">
+      <div class="animate-switch" ng-switch-when="addModel">
+        <my-list-option-addmodel info="info"/>
+      </div>
+      <div class="animate-switch" ng-switch-when="multiChange">
+        <my-list-option-multichange info="info"/>
+      </div>
+      <div class="animate-switch" ng-switch-when="upgradeModel">
+        <my-list-option-upgrademodel info="info"/>
+      </div>
+      <div class="animate-switch" ng-switch-when="selectiveChange">
+        <my-list-option-selectivechange info="info"/>
+      </div>
+      <div class="animate-switch" ng-switch-when="dedicatedTransport">
+        <my-list-option-dedicatedTransport info="info"/>
+      </div>
+  </div>
+
+</div>

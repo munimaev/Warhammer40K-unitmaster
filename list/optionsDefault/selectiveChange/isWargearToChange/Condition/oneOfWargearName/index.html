@@ -1,0 +1,15 @@
+<div class="card card_value">
+  <h4 class="card_h4">
+    По одному из имени снаряжения
+  </h4>
+  <p class="card_p" ng-repeat="(wgKey, wg) in unit.optionsDefault[k1].isWargearToChange[k3][k4].names track by $index">
+    <select class="input_del"
+      ng-options="value.wargearName as value.visibleName for (okey,value) in wargears"
+      ng-model="unit.optionsDefault[k1].isWargearToChange[k3][k4].names[wgKey]">
+    </select>
+    <span class="select_del" ng-click="selectDel(wgKey)">X</span>
+  </p>
+  <p class="card_p">
+    <small class="actlink" ng-click="selectAdd()">Добавить элемнт</small>
+  </p>
+</div>

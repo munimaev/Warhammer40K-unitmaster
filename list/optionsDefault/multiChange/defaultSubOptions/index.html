@@ -1,0 +1,56 @@
+<div class="list_wargear">
+
+	<div class="card card_header">
+	  <h3 class="card_h4">
+	    Вариант замены
+	  </h3>
+	</div>
+	<div class="card">
+	  <p class="card_p">
+	    <small class="actlink" ng-click="deleteOpt()">Удалить вариант</small>
+	  </p>
+	</div>
+
+	<div class="card card_value">
+    <h4 class="card_h4">
+      Цена замены
+    </h4>
+    <p class="card_p">
+      <input type="text" class="input100" ng-model="unit.optionsDefault[optKey].defaultSubOptions[subKey].cost">
+    </p>
+  </div>
+
+  <div class="card card_value">
+    <h4 class="card_h4">
+      Добавляемое снаряжение
+    </h4>
+    <p class="card_p" ng-repeat="(wgKey, wg) in unit.optionsDefault[optKey].defaultSubOptions[subKey].addItems track by $index">
+      <select class="input_del"
+        ng-options="value.wargearName as value.visibleName for (okey,value) in wargears"
+        ng-model="unit.optionsDefault[optKey].defaultSubOptions[subKey].addItems[wgKey]">
+      </select>
+      <span class="select_del" ng-click="selectAddDel(wgKey)">X</span>
+    </p>
+    <p class="card_p">
+      <small class="actlink" ng-click="selectAddAdd()">Добавить элемент</small>
+    </p>
+  </div>
+
+
+  <div class="card card_value">
+    <h4 class="card_h4">
+      Удаляемое снаряжение
+    </h4>
+    <p class="card_p" ng-repeat="(wgKey, wg) in unit.optionsDefault[optKey].defaultSubOptions[subKey].removeItems track by $index">
+      <select class="input_del"
+        ng-options="value.wargearName as value.visibleName for (okey,value) in wargears"
+        ng-model="unit.optionsDefault[optKey].defaultSubOptions[subKey].removeItems[wgKey]">
+      </select>
+      <span class="select_del" ng-click="selectRemoveDel(wgKey)">X</span>
+    </p>
+    <p class="card_p">
+      <small class="actlink" ng-click="selectRemoveAdd()">Добавить элемнт</small>
+    </p>
+  </div>
+
+</div>

@@ -1,0 +1,65 @@
+
+<div class="card card_value">
+  <h4 class="card_h4">
+    Текст в шапке
+  </h4>
+  <p class="card_p">
+    <textarea type="text" class="input100" ng-model="unit.optionsDefault[optKey].headerText"></textarea>
+  </p>
+</div>
+
+<div class="card">
+  <h4 class="card_h4">
+    Варианты замены
+  </h4>
+  <p class="card_p small">
+    
+  </p>
+  <div ng-repeat="(key,obj) in unit.optionsDefault[optKey].defaultSubOptions">
+    <h4 ng-class="linkClass(1, ['optionsDefault',optKey,'defaultSubOptions',key])" >
+      <span class="actlink" ng-click="selectList($event, 1, 'defaultSubOptionsSlective', ['optionsDefault',optKey,'defaultSubOptions',key])">{{miltyChangeVarianView(obj)}}</span> 
+    </h4>
+  </div>
+  <p class="card_p p20">
+    <small class="actlink" ng-click="optionAddSub()">Добавить условие</small>
+  </p>
+</div>
+
+
+
+
+<div class="card">
+  <h4 class="card_h4">
+    Требования к модели 
+  </h4>
+  <p class="card_p small">
+    Свойства, кторомы должна обладать модель что бы она могла воспользоваться этой опцией
+  </p>
+  <h4 ng-repeat="(key,obj) in unit.optionsDefault[optKey].isModelToChange" 
+      ng-class="linkClass(1, ['optionsDefault',optKey,'isModelToChange',key])">
+    <span class="actlink" 
+      ng-click="selectList($event, 1, 'isModelToChange', ['optionsDefault',optKey,'isModelToChange',key])">Требование</span> 
+  </h4>
+  <p class="card_p p20">
+    <small class="actlink" ng-click="optionAddModelCan()">Добавить требование</small>
+  </p>
+</div>
+
+
+
+<div class="card">
+  <h4 class="card_h4">
+    Набор требований к снаряжению 
+  </h4>
+  <p class="card_p small">
+    Свойства, кторомы должно обладать снаряжение модели, что бы его можно было заменить. Если снаряжение удолетворяет все трбования любого из набора, оно может быть заменено.
+  </p>
+  <h4 ng-repeat="(key,obj) in unit.optionsDefault[optKey].isWargearToChange"
+      ng-class="linkClass(1, ['optionsDefault',optKey,'isWargearToChange',key])" >
+    <span class="actlink" 
+      ng-click="selectList($event, 1, 'isWargearToChange', ['optionsDefault',optKey,'isWargearToChange',key])">Набор требований</span> 
+  </h4>
+  <p class="card_p p20">
+    <small class="actlink" ng-click="optionAddWargearCan()">Добавить набор требований</small>
+  </p>
+</div>

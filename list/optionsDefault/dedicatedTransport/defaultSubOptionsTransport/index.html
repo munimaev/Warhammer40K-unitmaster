@@ -1,0 +1,20 @@
+<div class="list_unit">
+  <div class="card card_header">
+    <h3 class="card_h4 ng-binding">
+      Прикомандированный транспорт
+    </h3>
+  </div>
+  <div class="card">
+    <p class="card_p">
+      <small class="actlink" ng-click="deleteOpt();">Удалить транспорт</small>
+    </p>
+  </div>
+  <div class="card card_value">
+    <h4 class="card_h4">
+      Транспорт
+    </h4>
+    <p class="card_p">
+    <select class="input100" ng-options="key as value for (key , value) in transport" ng-model="unit.optionsDefault[k1].defaultSubOptions[k3].dedicatedUnitName"></select>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="card">
+  <h4 class="card_h4">
+    Варианты транспорта
+  </h4>
+  <p class="card_p small">
+    
+  </p>
+  <div class="ng-scope" ng-repeat="(key,obj) in unit.optionsDefault[k1].defaultSubOptions">
+    <h4 class="card_link" ng-class="linkClass(1, ['optionsDefault',k1,'defaultSubOptions',key])">
+      <span class="actlink ng-binding" ng-click="selectList($event, 1, 'defaultSubOptionsTransport', ['optionsDefault',k1,'defaultSubOptions',key])">
+        {{transport[unit.optionsDefault[k1].defaultSubOptions[key].dedicatedUnitName] || "Транспорт"}}
+      </span> 
+    </h4>
+  </div>
+  <p class="card_p p20">
+    <small class="actlink" ng-click="optionAddSub()">Добавить вариант транпорта</small>
+  </p>
+</div>

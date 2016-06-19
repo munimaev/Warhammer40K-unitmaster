@@ -1,0 +1,16 @@
+<div class="card card_value">
+  <h4 class="card_h4">
+    Модель
+  </h4>
+  <p class="card_p" ng-repeat="(mkey, opt) in unit.optionsDefault[optKey][modKey][canKey].names track by $index">
+    <select 
+      class="input_del" 
+      ng-options="value.modelName as value.visibleModelName for (key , value) in models " 
+      ng-model="unit.optionsDefault[optKey][modKey][canKey].names[mkey]">
+    </select>
+    <span class="select_del" ng-click="selectDel(mkey)">X</span>
+  </p>
+  <p class="card_p">
+    <small class="actlink" ng-click="selectAdd()">Добавить модель</small>
+  </p>
+</div>

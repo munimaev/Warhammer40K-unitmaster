@@ -1,0 +1,43 @@
+<div class="card card_value">
+  <h4 class="card_h4">
+    Модель
+  </h4>
+  <p class="card_p">
+  <select class="input100"
+    ng-options="value.modelName as value.visibleModelName for (key , value) in models "
+    ng-model="unit.optionsDefault[optKey].modelToAdd">
+  </select>
+  </p>
+</div>
+<div class="card card_value">
+	<h4 class="card_h4">
+	  Цена за 1 модель
+	</h4>
+	<p class="card_p">
+	  <input type="text" value=""  class="input100" ng-model="unit.optionsDefault[optKey].cost"/>
+	</p>
+</div>
+<div class="card card_value">
+  <h4 class="card_h4">
+    Сколько моделей можно добавить 
+  </h4>
+  <p class="card_p">
+    <input type="text" value=""  class="input100" ng-model="unit.optionsDefault[optKey].maxCountAdding"/>
+  </p>
+</div>
+<div class="card">
+  <h4 class="card_h4">
+    Запрет удаления 
+  </h4>
+  <p class="card_p small">
+    Условие при котором блокируется возможность удаления ранее добавленных моделей.
+  </p>
+  <h4 ng-class="linkClass(1, ['optionsDefault',optKey,'funCanDisable',key])" 
+      ng-repeat="(key,obj) in unit.optionsDefault[optKey].funCanDisable" >
+    <span class="actlink" 
+      ng-click="selectList($event, 1, 'funCanDisable', ['optionsDefault',optKey,'funCanDisable',key])">Доступность других опций зависит численности этого отряда</span> 
+  </h4>
+  <p class="card_p">
+    <small class="actlink" ng-click="optionAdd()">Добавить условие</small>
+  </p>
+</div>

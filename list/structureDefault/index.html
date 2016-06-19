@@ -1,0 +1,33 @@
+<div class="list_gear">
+  <div class="card card_header">
+    <h3 class="card_h4">
+      {{header()}}
+    </h3>
+  </div>
+  <div class="card">
+    <p class="card_p">
+      <small class="actlink" ng-click="deleteOpt();">Удалить модель</small>
+    </p>
+  </div>
+
+  <div class="card card_value">
+    <h4 class="card_h4">
+      Модель
+    </h4>
+    <p class="card_p">
+    <select class="input100" ng-options="value.modelName as value.visibleModelName for (key , value) in models " ng-model="unit.structureDefault[p1].name"></select>
+    </p>
+  </div>
+
+
+  <div class="card card_value">
+    <h4 class="card_h4">
+      Количесвто
+    </h4>
+    <p class="card_p">
+      <input value="" class="input100" ng-model="unit.structureDefault[p1].count" type="text">
+    </p>
+  </div>
+  
+
+</div>

@@ -1,0 +1,178 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <script src="bower_components/angular/angular.js"></script>
+
+  <script src="app.js"></script>
+
+  <script src="list/structureDefault/directive.js"></script>
+
+  <script src="list/defaultSpecialRules/directive.js"></script>
+
+  <script src="list/defaultUnitWargear/directive.js"></script>
+
+
+  <script src="list/optionsDefault/directive.js"></script>
+
+  <script src="list/optionsDefault/addModel/directive.js"></script>
+  <script src="list/optionsDefault/addModel/funCanDisable/directive.js"></script>
+  <script src="list/optionsDefault/addModel/funCanDisable/tactical/directive.js"></script>
+
+  <script src="list/optionsDefault/multiChange/directive.js"></script>
+  <script src="list/optionsDefault/multiChange/defaultSubOptions/directive.js"></script>
+  <script src="list/optionsDefault/multiChange/canEnable/directive.js"></script>
+  <script src="list/optionsDefault/multiChange/canEnable/onModelCountAndOtherOption/directive.js"></script>
+  <script src="list/optionsDefault/multiChange/canEnable/onModelCountAndOtherOption/opts/directive.js"></script>
+  <script src="list/optionsDefault/multiChange/isModelCanChange/directive.js"></script>
+  <script src="list/optionsDefault/multiChange/isModelCanChange/oneOfModelName/directive.js"></script>
+
+  <script src="list/optionsDefault/upgradeModel/directive.js"></script>
+
+
+
+  <script src="list/optionsDefault/selectiveChange/directive.js"></script>
+  <script src="list/optionsDefault/selectiveChange/defaultSubOptions/directive.js"></script>
+  <script src="list/optionsDefault/selectiveChange/isModelToChange/directive.js"></script>
+  <script src="list/optionsDefault/selectiveChange/isWargearToChange/directive.js"></script>
+  <script src="list/optionsDefault/selectiveChange/isWargearToChange/Condition/directive.js"></script>
+  <script src="list/optionsDefault/selectiveChange/isWargearToChange/Condition/oneOfWargearName/directive.js"></script>
+  <script src="list/optionsDefault/selectiveChange/isWargearToChange/Condition/oneOfWargearType/directive.js"></script>
+  <script src="list/optionsDefault/selectiveChange/isWargearToChange/Condition/createBySelf/directive.js"></script>
+
+  <script src="list/optionsDefault/dedicatedTransport/directive.js"></script>
+  <script src="list/optionsDefault/dedicatedTransport/defaultSubOptionsTransport/directive.js"></script>
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-controller="CtrlUnit">
+
+
+<div class="list list_unit" style="top:0px;left:0px">
+  <div class="card card_header card_header_gear">
+    <h3 class="card_h4 card_h4_gear">
+      Юнит
+    </h3>
+  </div>
+
+  <div class="card card_value">
+    <h4 class="card_h4">
+      Тип опции
+    </h4>
+    <p class="card_p">
+    <select class="input100" ng-options="key as value for (key , value) in unitTypes" ng-model="unit.type"></select>
+    </p>
+  </div>
+
+  <div class="card card_value">
+    <h4 class="card_h4">
+      Наименование юнита
+    </h4>
+    <p class="card_p">
+      <input value="" class="input100" ng-model="unit.visibleName" type="text">
+    </p>
+    <p class="card_p small ">
+      {{getUnitId()}}
+    </p>
+  </div>
+
+  <div class="card card_value">
+    <h4 class="card_h4">
+      Цена юнита
+    </h4>
+    <p class="card_p">
+      <input value="" class="input100" ng-model="unit.price" type="text">
+    </p>
+  </div>
+
+  <div class="card">
+    <h4 class="card_h4">
+      Структура 
+    </h4>
+    <div ng-repeat="(modelKey, model) in unit.structureDefault">
+      <h4 ng-class="linkClass(0, ['structureDefault',modelKey])">
+        <span class="actlink" ng-click="selectList($event, 0, 'structureDefault', ['structureDefault',modelKey])">{{model.count}} x {{getModelName(model.name)}}</span> 
+      </h4>
+      <p class="card_p small p20"></p>
+    </div>
+    <p class="card_p" style="padding-left:20px;">
+      <small class="actlink" ng-click="addStructureDefault()">Добавить модель</small>
+    </p>
+  </div>
+
+  <div class="card">
+    <h4 class="card_h4">
+      Специальные правила 
+    </h4>
+    <h4 ng-class="linkClass(0, ['defaultSpecialRules','none','toAll','rules'])">
+        <span class="actlink" ng-click="selectList($event, 0, 'defaultSpecialRules', ['defaultSpecialRules','none','toAll','rules'])">Для всех моделей в отряде</span> 
+    </h4>
+    <p class="card_p small p20">
+      <span ng-repeat="(ruleKey, rule) in unit.defaultSpecialRules.none.toAll.rules">{{getRulelName(rule)}}<br> </span>
+    </p>
+
+
+    <div ng-repeat="(modelKey, model) in unit.structureDefault">
+      <h4 ng-class="linkClass(0, ['defaultSpecialRules','onModelName',model.name,'rules'])">
+          <span class="actlink" ng-click="selectList($event, 0, 'defaultSpecialRules', ['defaultSpecialRules','onModelName',model.name,'rules'])">Для моделей <i>{{getModelName(model.name)}}</i></span> 
+      </h4>
+      <p class="card_p small p20">
+        <span ng-repeat="(ruleKey, rule) in unit.defaultSpecialRules.onModelName[model.name].rules">{{getRulelName(rule)}}<br> </span>
+      </p>
+    </div>
+  </div>
+
+  
+  <div class="card">
+    <h4 class="card_h4">
+      Снаряжение 
+    </h4>
+    <h4 ng-class="linkClass(0, ['defaultUnitWargear','none','toAll','wargears'])">
+        <span class="actlink" ng-click="selectList($event, 0, 'defaultUnitWargear', ['defaultUnitWargear','none','toAll','wargears'])">Для всех моделей в отряде</span> 
+    </h4>
+    <p class="card_p small p20">
+      <span ng-repeat="(ruleKey, rule) in unit.defaultUnitWargear.none.toAll.wargears">{{getWargearName(rule)}}<br> </span>
+    </p>
+
+
+    <div ng-repeat="(modelKey, model) in unit.structureDefault">
+      <h4 ng-class="linkClass(0, ['defaultUnitWargear','onModelName',model.name,'wargears'])">
+          <span class="actlink" ng-click="selectList($event, 0, 'defaultUnitWargear', ['defaultUnitWargear','onModelName',model.name,'wargears'])">Для моделей <i>{{getModelName(model.name)}}</i></span> 
+      </h4>
+      <p class="card_p small p20">
+        <span ng-repeat="(ruleKey, rule) in unit.defaultUnitWargear.onModelName[model.name].wargears">{{getWargearName(rule)}}<br> </span>
+      </p>
+    </div>
+  </div>
+
+  
+
+  <div class="card">
+    <h4 class="card_h4">
+      Опции 
+    </h4>
+    <div ng-repeat="(optionKey, option) in unit.optionsDefault">
+      <h4 ng-class="linkClass(0, ['optionsDefault',optionKey])">
+        <span class="actlink" ng-click="selectList($event, 0, 'optionsDefault', ['optionsDefault',optionKey])">{{optionViewName(option,optionKey).h}}</span> 
+      </h4>
+      <p class="card_p small p20">
+        {{optionViewName(option,optionKey).d}}
+      </p>
+    </div>
+    <p class="card_p" style="padding-left:20px;">
+      <small class="actlink" ng-click="addOption()">Добавить опцию</small>
+    </p>
+  </div>
+
+</div>
+
+<div class="list" ng-repeat="(listKey,list) in listsPos" style="top:{{list.y}}px;left:{{list.x}}px;">
+  <my-list-generator info="list"></my-list-generator>
+</div>
+
+<div class="pre">
+  <pre>{{unit|json}}</pre>
+</div>
+
+</body>
+</html>

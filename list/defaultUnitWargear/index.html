@@ -1,0 +1,30 @@
+<div class="list_gear">
+  <div class="card card_header">
+    <h3 class="card_h4">
+      {{header()}}
+    </h3>
+  </div>
+  <div class="card">
+    <p class="card_p">
+    </p>
+  </div>
+
+
+  <div class="card card_value">
+    <h4 class="card_h4">
+      Набор снаряжения
+    </h4>
+    <p class="card_p" ng-repeat="(key, rul) in unit[p0][p1][p2][p3]">
+      <select class="input_del"
+        ng-options="value.wargearName as value.visibleName for (key , value) in wargears"
+        ng-model="unit[p0][p1][p2][p3][key]">
+      </select>
+      <span class="select_del" ng-click="delWargear(key)">X</span>
+    </p>
+    <p class="card_p">
+      <small class="actlink" ng-click="addWargear()">Добавить специальное правило</small>
+    </p>
+  </div>
+  
+
+</div>

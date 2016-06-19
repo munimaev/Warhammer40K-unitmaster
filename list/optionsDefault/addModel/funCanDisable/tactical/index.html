@@ -1,0 +1,24 @@
+
+<div class="card card_value">
+  <h4 class="card_h4">
+    Количесвто варгира
+  </h4>
+  <p class="card_p">
+    <input type="text" class="input100" ng-model="unit.optionsDefault[optKey].funCanDisable[disKey].count" />
+  </p>
+</div>
+<div class="card card_value">
+  <h4 class="card_h4">
+    Снаряжение из каких опций зависит от численности
+  </h4>
+  <p class="card_p" ng-repeat="(key, opt) in unit.optionsDefault[optKey].funCanDisable[disKey].options track by $index">
+    <select class="input_del"
+	    ng-options="value.optionName as optionName(okey) for (okey , value) in unit.optionsDefault"
+	    ng-model="unit.optionsDefault[optKey].funCanDisable[disKey].options[key]">
+    </select>
+    <span class="select_del" ng-click="selectDel(key)">X</span>
+  </p>
+  <p class="card_p">
+    <small class="actlink" ng-click="selectAdd()">Добавить опцию</small>
+  </p>
+</div>

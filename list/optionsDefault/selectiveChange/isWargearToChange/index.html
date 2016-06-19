@@ -1,0 +1,33 @@
+<div class="list_block">
+
+	<div class="card card_header">
+	  <h3 class="card_h4">
+	    Набор требований
+	  </h3>
+	</div>
+	<div class="card">
+	  <p class="card_p">
+	    <small class="actlink" ng-click="deleteOpt()">Удалить набор трбований</small>
+	  </p>
+	</div>
+
+  <div class="card">
+    <h4 class="card_h4">
+      Требования 
+    </h4>
+    <div ng-repeat="(key,obj) in unit.optionsDefault[k1][k2][k3]">
+      <h4  ng-class="linkClass(2, ['optionsDefault',k1,k2,k3, key])">
+        <span class="actlink" 
+          ng-click="selectList($event, 2, 'isWargearToChangeCondition', ['optionsDefault',k1,k2,k3, key])">{{conditionView(unit.optionsDefault[k1][k2][k3][key]).h}}</span> 
+      </h4>
+      <p class="card_p small p20">
+        <small>{{conditionView(unit.optionsDefault[k1][k2][k3][key]).d}}</small>
+      </p>
+    </div>
+    <p class="card_p p20">
+      <small class="actlink" ng-click="optionAdd()">Добавить требование</small>
+    </p>
+  </div>
+ 
+
+</div>
