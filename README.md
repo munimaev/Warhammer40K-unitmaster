@@ -11,7 +11,7 @@
 * Seed Angular (отсюда и много лишних файлов, например, предназначенных для тестирования) 
 
 #### Демка
-<a href="">Создать боевую единицу во славу Императора!</a>
+<a href="https://munimaev.github.io/Warhammer40K-unitmaster/index.html">Создать боевую единицу во славу Императора!</a>
 
 ####Дополнительно
-Смотри так же <a href="https://munimaev.github.io/Warhammer40K-unitmaster/index.html">Конструктор армии для Warhammer 40000</a>
+Смотри так же <a href="https://github.com/munimaev/Warhammer40K-builder">Конструктор армии для Warhammer 40000</a>
