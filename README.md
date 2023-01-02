@@ -1,4 +1,4 @@
-# Warhammer 40000 unitmaster
+# Warhammer 40000 Unit Master
 
 Конструктор юнитов для <a href="https://github.com/munimaev/Warhammer40K-builder">Конструктор армии для Warhammer 40000</a>
 
